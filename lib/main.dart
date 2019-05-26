@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import './demo/listView_demo.dart';
+import './demo/hello_demo.dart';
+import './demo/drawer_demo.dart';
+import './demo/bottom_navigation_bar_demo.dart';
 
 void main() => runApp(App());
 
@@ -72,11 +75,12 @@ class Home extends StatelessWidget {
         ),
         body: TabBarView(//标签视图
           children: <Widget>[
-            Icon(//图标小部件
-              Icons.local_florist,
-              size: 128.0,
-              color: Colors.black12,
-            ),
+            ListViewDemo(),
+            // Icon(//图标小部件
+            //   Icons.local_florist,
+            //   size: 128.0,
+            //   color: Colors.black12,
+            // ),
             Icon(//图标小部件
               Icons.change_history,
               size: 128.0,
@@ -91,95 +95,11 @@ class Home extends StatelessWidget {
         ),
         //ListViewDemo(),
         //Hello(),
-        drawer: Drawer(//边栏抽屉小部件
-          child: ListView(//列表视图小部件
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              // DrawerHeader(//边栏抽屉头部小部件
-              //   child: Text("王思婷"),
-              //   decoration: BoxDecoration(//背景小部件
-              //     color: Colors.grey[100],
-              //   ),
-              // ),
-              UserAccountsDrawerHeader(//边栏抽屉用户信息小部件
-                accountName: Text(//文本小部件
-                  "王思婷",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold
-                  ),
-                ),
-                accountEmail: Text(
-                  "xxxxx@163.com",
-                ),
-                currentAccountPicture: CircleAvatar(//头像小部件
-                  backgroundImage: NetworkImage("https://thirdqq.qlogo.cn/g?b=sdk&k=7PjKjQl8yKQ9nSdJapCvjA&s=140&t=1558078985"),
-                ),
-                decoration: BoxDecoration(//背景小部件
-                  color: Colors.yellow[400],
-                  image: DecorationImage(//背景图片小部件
-                    image: NetworkImage("https://resources.ninghao.org/images/childhood-in-a-picture.jpg"),
-                    fit: BoxFit.cover,//图片填充方式
-                    colorFilter: ColorFilter.mode(//滤镜小部件
-                      Colors.yellow[400].withOpacity(0.6),
-                      BlendMode.hardLight
-                     )
-                  )
-                ),
-              ),
-              ListTile(
-                title: Text(//文本小部件
-                  "Messages",
-                  textAlign: TextAlign.right,//文本对齐方式
-                ),
-                trailing: Icon(
-                  Icons.message
-                ),
-                onTap: () => Navigator.pop(context),//返回上一个页面
-              ),
-              ListTile(
-                title: Text(//文本小部件
-                  "Favorite",
-                  textAlign: TextAlign.right,//文本对齐方式
-                ),
-                trailing: Icon(
-                  Icons.favorite
-                ),
-                onTap: () => Navigator.pop(context),//返回上一个页面
-              ),
-              ListTile(
-                title: Text(//文本小部件
-                  "Settings",
-                  textAlign: TextAlign.right,//文本对齐方式
-                ),
-                trailing: Icon(
-                  Icons.settings
-                ),
-                onTap: () => Navigator.pop(context),//返回上一个页面
-              )
-            ],
-          ),
-        ),
+        drawer: DrawerDemo(),
+        bottomNavigationBar: BottomNavigationBarDemo(),
       ),
     );
   }
 }
 
-class Hello extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      //居中小部件
-      child: Text(
-        //文字小部件
-        'hello world',
-        textDirection: TextDirection.ltr, //文字阅读方向
-        style: TextStyle(
-            //文字样式小部件
-            fontSize: 40.0, //字体太小
-            fontWeight: FontWeight.bold, //文字粗细
-            color: Colors.black87 //文字颜色
-            ),
-      ),
-    );
-  }
-}
+
