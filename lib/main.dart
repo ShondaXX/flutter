@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './model/post.dart';
+import './demo/listView_demo.dart';
 
 void main() => runApp(App());
 
@@ -8,6 +8,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       //Material 风格的小部件
+      debugShowCheckedModeBanner: false, //隐藏 debug 条幅
       home: Home(),
       theme: ThemeData(
           //主题颜色小部件
@@ -18,50 +19,37 @@ class App extends StatelessWidget {
 }
 
 class Home extends StatelessWidget {
-  Widget _listItemBuilder(BuildContext context,int index){
-    return Container(//盒子小部件
-      color: Colors.white,
-      margin: EdgeInsets.all(8.0),//外边距
-      child: Column(//列小部件
-        children: <Widget>[
-          Image.network(posts[index].imageUrl),//加载网络图片
-          SizedBox(//小盒子小部件
-            height: 16.0,
-          ),
-          Text(
-            posts[index].title,
-            style: Theme.of(context).textTheme.title,//文字主题
-          ),
-          Text(
-            posts[index].author,
-            style: Theme.of(context).textTheme.subhead,//文字主题
-          ),
-          SizedBox(//小盒子小部件
-            height: 16.0,
-          )
-        ],
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey[100],//背景颜色
-      //脚手架小部件
-      appBar: AppBar(
-        //顶部工具栏小部件
+    return Scaffold(//脚手架小部件
+      backgroundColor: Colors.grey[100], //背景颜色
+      appBar: AppBar(//顶部工具栏小部件
+        leading: IconButton(//图标按钮小部件
+          icon: Icon(//图标小部件
+            Icons.menu
+          ),
+          tooltip: "Navigration",//长按显示  
+          onPressed: ()=> debugPrint("navigration"),//点击事件
+        ),
+        actions: <Widget>[
+          IconButton(//图标按钮小部件
+            icon: Icon(//图标小部件
+              Icons.search
+            ),
+            tooltip: "Search",//长按显示
+            onPressed: () => debugPrint("search"),
+          )
+        ],
         title: Text("hello"), //标题
         elevation: 0.0, //顶部工具栏阴影
       ),
-      body: ListView.builder(//列表视图小部件
-        itemCount: posts.length,//列表数量
-        itemBuilder: _listItemBuilder,//列表视图项目
-      ),
+      body: ListViewDemo(),
       //Hello()
     );
   }
 }
+
+
 
 class Hello extends StatelessWidget {
   @override
