@@ -11,6 +11,11 @@ class App extends StatelessWidget {
         //文字小部件
         'hello world',
         textDirection: TextDirection.ltr, //文字阅读方向
+        style: TextStyle(//文字样式小部件
+          fontSize: 40.0,//字体太小
+          fontWeight: FontWeight.bold,//文字粗细
+          color: Colors.yellow//文字颜色
+        ),
       ),
     );
   }
