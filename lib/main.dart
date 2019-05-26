@@ -95,10 +95,25 @@ class Home extends StatelessWidget {
           child: ListView(//列表视图小部件
             padding: EdgeInsets.zero,
             children: <Widget>[
-              DrawerHeader(//边栏抽屉头部小部件
-                child: Text("王思婷"),
-                decoration: BoxDecoration(//背景小部件
-                  color: Colors.grey[100],
+              // DrawerHeader(//边栏抽屉头部小部件
+              //   child: Text("王思婷"),
+              //   decoration: BoxDecoration(//背景小部件
+              //     color: Colors.grey[100],
+              //   ),
+              // ),
+              UserAccountsDrawerHeader(//边栏抽屉用户信息小部件
+                accountName: Text(//文本小部件
+                  "王思婷",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold
+                  ),
+                ),
+                accountEmail: Text(
+                  "xxxxx@163.com",
+                ),
+                currentAccountPicture: CircleAvatar(
+                  backgroundImage: NetworkImage(""),
+                  
                 ),
               ),
               ListTile(
