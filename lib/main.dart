@@ -111,9 +111,19 @@ class Home extends StatelessWidget {
                 accountEmail: Text(
                   "xxxxx@163.com",
                 ),
-                currentAccountPicture: CircleAvatar(
-                  backgroundImage: NetworkImage(""),
-                  
+                currentAccountPicture: CircleAvatar(//头像小部件
+                  backgroundImage: NetworkImage("https://thirdqq.qlogo.cn/g?b=sdk&k=7PjKjQl8yKQ9nSdJapCvjA&s=140&t=1558078985"),
+                ),
+                decoration: BoxDecoration(//背景小部件
+                  color: Colors.yellow[400],
+                  image: DecorationImage(//背景图片小部件
+                    image: NetworkImage("https://resources.ninghao.org/images/childhood-in-a-picture.jpg"),
+                    fit: BoxFit.cover,//图片填充方式
+                    colorFilter: ColorFilter.mode(//滤镜小部件
+                      Colors.yellow[400].withOpacity(0.6),
+                      BlendMode.hardLight
+                     )
+                  )
                 ),
               ),
               ListTile(
