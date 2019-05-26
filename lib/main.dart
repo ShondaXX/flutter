@@ -21,35 +21,75 @@ class App extends StatelessWidget {
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(//脚手架小部件
-      backgroundColor: Colors.grey[100], //背景颜色
-      appBar: AppBar(//顶部工具栏小部件
-        leading: IconButton(//图标按钮小部件
-          icon: Icon(//图标小部件
-            Icons.menu
-          ),
-          tooltip: "Navigration",//长按显示  
-          onPressed: ()=> debugPrint("navigration"),//点击事件
-        ),
-        actions: <Widget>[
-          IconButton(//图标按钮小部件
+    return DefaultTabController(//标签小部件
+      length: 3, //标签数量
+      child: Scaffold(
+        //脚手架小部件
+        backgroundColor: Colors.grey[100], //背景颜色
+        appBar: AppBar(
+          //顶部工具栏小部件
+          leading: IconButton(
+            //图标按钮小部件
             icon: Icon(//图标小部件
-              Icons.search
+                Icons.menu),
+            tooltip: "Navigration", //长按显示
+            onPressed: () => debugPrint("navigration"), //点击事件
+          ),
+          actions: <Widget>[
+            IconButton(//图标按钮小部件
+              icon: Icon(//图标小部件
+                  Icons.search),
+              tooltip: "Search", //长按显示
+              onPressed: () => debugPrint("search"),
+            )
+          ],
+          title: Text("hello"), //标题
+          elevation: 0.0, //顶部工具栏阴影
+          bottom: TabBar(//标签栏
+            tabs: <Widget>[
+              Tab(//标签控制器小部件
+                icon: Icon(//图标小部件
+                  Icons.local_florist
+                ),
+              ),
+              Tab(//标签控制器小部件
+                icon: Icon(//图标小部件
+                  Icons.change_history
+                ),
+              ),
+              Tab(//标签控制器小部件
+                icon: Icon(//图标小部件
+                  Icons.directions_bike
+                ),
+              )
+            ],
+          ),
+        ),
+        body: TabBarView(//标签视图
+          children: <Widget>[
+            Icon(//图标小部件
+              Icons.local_florist,
+              size: 128.0,
+              color: Colors.black12,
             ),
-            tooltip: "Search",//长按显示
-            onPressed: () => debugPrint("search"),
-          )
-        ],
-        title: Text("hello"), //标题
-        elevation: 0.0, //顶部工具栏阴影
+            Icon(//图标小部件
+              Icons.change_history,
+              size: 128.0,
+              color: Colors.black12,
+            ),
+            Icon(//图标小部件
+              Icons.directions_bike,
+              size: 128.0,
+              color: Colors.black12,
+            )
+          ],
+        ),
+        //ListViewDemo()
+        //Hello()
       ),
-      body: ListViewDemo(),
-      //Hello()
     );
   }
 }
-
-
 
 class Hello extends StatelessWidget {
   @override
