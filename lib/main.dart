@@ -28,13 +28,13 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.grey[100], //背景颜色
         appBar: AppBar(
           //顶部工具栏小部件
-          leading: IconButton(
-            //图标按钮小部件
-            icon: Icon(//图标小部件
-                Icons.menu),
-            tooltip: "Navigration", //长按显示
-            onPressed: () => debugPrint("navigration"), //点击事件
-          ),
+          // leading: IconButton(
+          //   //图标按钮小部件
+          //   icon: Icon(//图标小部件
+          //       Icons.menu),
+          //   tooltip: "Navigration", //长按显示
+          //   onPressed: () => debugPrint("navigration"), //点击事件
+          // ),
           actions: <Widget>[
             IconButton(//图标按钮小部件
               icon: Icon(//图标小部件
@@ -109,6 +109,7 @@ class Home extends StatelessWidget {
                 trailing: Icon(
                   Icons.message
                 ),
+                onTap: () => Navigator.pop(context),//返回上一个页面
               ),
               ListTile(
                 title: Text(//文本小部件
@@ -118,6 +119,7 @@ class Home extends StatelessWidget {
                 trailing: Icon(
                   Icons.favorite
                 ),
+                onTap: () => Navigator.pop(context),//返回上一个页面
               ),
               ListTile(
                 title: Text(//文本小部件
@@ -127,6 +129,7 @@ class Home extends StatelessWidget {
                 trailing: Icon(
                   Icons.settings
                 ),
+                onTap: () => Navigator.pop(context),//返回上一个页面
               )
             ],
           ),
