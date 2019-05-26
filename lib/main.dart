@@ -89,8 +89,48 @@ class Home extends StatelessWidget {
             )
           ],
         ),
-        //ListViewDemo()
-        //Hello()
+        //ListViewDemo(),
+        //Hello(),
+        drawer: Drawer(//边栏抽屉小部件
+          child: ListView(//列表视图小部件
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              DrawerHeader(//边栏抽屉头部小部件
+                child: Text("王思婷"),
+                decoration: BoxDecoration(//背景小部件
+                  color: Colors.grey[100],
+                ),
+              ),
+              ListTile(
+                title: Text(//文本小部件
+                  "Messages",
+                  textAlign: TextAlign.right,//文本对齐方式
+                ),
+                trailing: Icon(
+                  Icons.message
+                ),
+              ),
+              ListTile(
+                title: Text(//文本小部件
+                  "Favorite",
+                  textAlign: TextAlign.right,//文本对齐方式
+                ),
+                trailing: Icon(
+                  Icons.favorite
+                ),
+              ),
+              ListTile(
+                title: Text(//文本小部件
+                  "Settings",
+                  textAlign: TextAlign.right,//文本对齐方式
+                ),
+                trailing: Icon(
+                  Icons.settings
+                ),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
