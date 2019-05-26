@@ -46,6 +46,11 @@ class Home extends StatelessWidget {
           title: Text("hello"), //标题
           elevation: 0.0, //顶部工具栏阴影
           bottom: TabBar(//标签栏
+            unselectedLabelColor: Colors.black38,//未被选中标签颜色
+            indicatorColor: Colors.black54,//选中标签下方线条颜色
+            indicatorSize: TabBarIndicatorSize.label,//选中标签下方线条长度
+            indicatorWeight: 1.0,//选中标签下方线条粗细
+            indicatorPadding: EdgeInsets.all(10.0),//选中标签下方线条的内边距
             tabs: <Widget>[
               Tab(//标签控制器小部件
                 icon: Icon(//图标小部件
