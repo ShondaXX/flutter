@@ -3,7 +3,88 @@ import 'package:flutter/material.dart';
 class BasicDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return RichTextDemo();
+    return Container(//盒子小部件
+      // color: Colors.grey[100],
+      decoration: BoxDecoration(//背景小部件
+        image: DecorationImage(//背景图片小部件
+          image: NetworkImage("https://thirdqq.qlogo.cn/g?b=sdk&k=7PjKjQl8yKQ9nSdJapCvjA&s=140&t=1558078985"),
+          alignment: Alignment.topCenter,//对齐方式
+          repeat: ImageRepeat.repeatY,//
+          // fit: BoxFit.fitWidth//填充方式
+          colorFilter: ColorFilter.mode(//滤镜小部件
+            Colors.indigoAccent[100].withOpacity(0.5),//颜色
+            BlendMode.hardLight//混合模式
+            )
+        )
+      ),
+      child: Row(
+        //行小部件
+        mainAxisAlignment: MainAxisAlignment.center, //主轴对齐
+        children: <Widget>[
+          Container(
+            //盒子小部件
+            child: Icon(
+              //图标小部件
+              Icons.pool,
+              size: 32.0,
+              color: Colors.white,
+            ),
+            // color: Color.fromRGBO(3, 54, 255, 1.0),//背景颜色
+            padding: EdgeInsets.all(16.0), //内边距
+            margin: EdgeInsets.all(8.0), //外边距
+            width: 90.0, //宽度
+            height: 90.0, //高度
+            decoration: BoxDecoration(
+              //背景小部件
+              color: Color.fromRGBO(3, 54, 255, 1.0),
+              border: Border.all(
+                  color: Colors.indigoAccent[100],
+                  width: 3.0,
+                  style: BorderStyle.solid),
+              //Border(//边框小部件
+              // top: BorderSide(//边小部件
+              //   color: Colors.indigoAccent[100],
+              //   width: 3.0,
+              //   style: BorderStyle.solid
+              // )
+              //),
+              // borderRadius: BorderRadius.only(//圆角小部件
+              //   topLeft: Radius.circular(64.0)
+              // ),
+              //BorderRadius.circular(16.0),//圆角小部件
+              boxShadow: [
+                BoxShadow(
+                    //阴影小部件
+                    offset: Offset(
+                        //坐标小部件
+                        6.0,
+                        7.0),
+                    color: Color.fromRGBO(16, 20, 188, 1.0), //阴影颜色
+                    blurRadius: 25.0, //模糊程度
+                    spreadRadius: -9.0 //阴影扩散程度
+                    )
+              ],
+              shape: BoxShape.circle, //盒子形状小部件
+              // gradient: RadialGradient(//镜像渐变小部件
+              //   colors: [
+              //     Color.fromRGBO(7, 102, 255, 1.0),
+              //     Color.fromRGBO(3, 28, 128, 1.0)
+              //   ]
+              // ),
+              gradient: LinearGradient(//线性渐变小部件
+                colors: [
+                  Color.fromRGBO(7, 102, 255, 1.0),
+                  Color.fromRGBO(3, 28, 128, 1.0)
+                ],
+                begin: Alignment.topCenter,//渐变开始位置
+                end: Alignment.bottomCenter,//渐变结束位置
+              ),
+              
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
 
