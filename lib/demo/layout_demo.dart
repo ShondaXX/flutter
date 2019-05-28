@@ -8,14 +8,31 @@ class LayoutDemo extends StatelessWidget {
         //横排小部件
         mainAxisAlignment: MainAxisAlignment.center, //主轴
         children: <Widget>[
-          AspectRatio(//宽高比小部件
-            aspectRatio: 3.0/2.0,//比例
+          ConstrainedBox(//限制盒子小部件
             child: Container(
+              constraints: BoxConstraints(//限制小部件
+                minHeight: 200.0,
+                maxWidth: 200.0
+              ),
               color: Color.fromRGBO(3, 54, 255, 1.0),
             ),
           ),
+          // AspectRatioDemo(),
           // StatckDemo()
         ],
+      ),
+    );
+  }
+}
+
+class AspectRatioDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return AspectRatio(
+      //宽高比小部件
+      aspectRatio: 3.0 / 2.0, //比例
+      child: Container(
+        color: Color.fromRGBO(3, 54, 255, 1.0),
       ),
     );
   }
