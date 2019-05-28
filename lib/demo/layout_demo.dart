@@ -5,6 +5,9 @@ class LayoutDemo extends StatelessWidget{
   Widget build(BuildContext context){
     return Container(
       child: Row(//横排小部件
+        mainAxisAlignment: MainAxisAlignment.end,//主轴
+        crossAxisAlignment: CrossAxisAlignment.stretch,//交叉轴
+
         children: <Widget>[
           IconBadge(
             Icons.poll
