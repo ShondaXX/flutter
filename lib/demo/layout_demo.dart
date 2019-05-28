@@ -8,53 +8,66 @@ class LayoutDemo extends StatelessWidget {
         //横排小部件
         mainAxisAlignment: MainAxisAlignment.center, //主轴
         children: <Widget>[
-          Stack(//叠加小部件
-             alignment: Alignment.bottomCenter,
-            children: <Widget>[
-              SizedBox(
-                //小盒子小部件
-                width: 200.0,
-                height: 300.0,
-                child: Container(
-                  //背景小部件
-                  alignment: Alignment(1.0, -1.0), //对齐位置
-                  decoration: BoxDecoration(
-                    color: Color.fromRGBO(3, 54, 255, 1.0),
-                    borderRadius: BorderRadius.circular(8.0),
-                    gradient: RadialGradient(//镜像渐变小部件
-                      colors: [
-                        Color.fromRGBO(7, 102, 255, 1.0),
-                        Color.fromRGBO(3, 54, 255, 1.0 )
-                      ]
-                    )
-                  ),
-                  child: Icon(
-                    //图标小部件
-                    Icons.ac_unit,
-                    color: Colors.white,
-                    size: 32.0,
-                  ),
-                ),
-              ),
-              SizedBox(
-                child: IconBadge(
-                  Icons.access_time,
-                  size: 64.0,
-                ),
-              ),
-              Positioned(//定位小部件
-                right: 20.0,
-                 top: 20.0,
-                child: Icon(
-                  Icons.accessibility_new,
-                  color: Colors.white,
-                  size: 32.0,
-                ),
-              )
-            ],
-          )
+          AspectRatio(//宽高比小部件
+            aspectRatio: 3.0/2.0,//比例
+            child: Container(
+              color: Color.fromRGBO(3, 54, 255, 1.0),
+            ),
+          ),
+          // StatckDemo()
         ],
       ),
+    );
+  }
+}
+
+class StatckDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      //叠加小部件
+      alignment: Alignment.bottomCenter,
+      children: <Widget>[
+        SizedBox(
+          //小盒子小部件
+          width: 200.0,
+          height: 300.0,
+          child: Container(
+            //背景小部件
+            alignment: Alignment(1.0, -1.0), //对齐位置
+            decoration: BoxDecoration(
+                color: Color.fromRGBO(3, 54, 255, 1.0),
+                borderRadius: BorderRadius.circular(8.0),
+                gradient: RadialGradient(//镜像渐变小部件
+                    colors: [
+                  Color.fromRGBO(7, 102, 255, 1.0),
+                  Color.fromRGBO(3, 54, 255, 1.0)
+                ])),
+            child: Icon(
+              //图标小部件
+              Icons.ac_unit,
+              color: Colors.white,
+              size: 32.0,
+            ),
+          ),
+        ),
+        SizedBox(
+          child: IconBadge(
+            Icons.access_time,
+            size: 64.0,
+          ),
+        ),
+        Positioned(
+          //定位小部件
+          right: 20.0,
+          top: 20.0,
+          child: Icon(
+            Icons.accessibility_new,
+            color: Colors.white,
+            size: 32.0,
+          ),
+        )
+      ],
     );
   }
 }
