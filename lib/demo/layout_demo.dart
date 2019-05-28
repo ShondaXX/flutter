@@ -5,16 +5,24 @@ class LayoutDemo extends StatelessWidget{
   Widget build(BuildContext context){
     return Container(
       child: Row(//横排小部件
-        mainAxisAlignment: MainAxisAlignment.end,//主轴
-        crossAxisAlignment: CrossAxisAlignment.stretch,//交叉轴
-
+        mainAxisAlignment: MainAxisAlignment.center,//主轴
         children: <Widget>[
-          IconBadge(
-            Icons.poll
-          ),
-          IconBadge(
-            Icons.polymer
-          ),
+          SizedBox(//小盒子小部件
+            width: 200.0,
+            height: 300.0,
+            child: Container(//背景小部件
+              alignment: Alignment(1.0, -1.0),//对齐位置
+              decoration: BoxDecoration(
+                color: Color.fromRGBO(3, 54, 255, 1.0),
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: Icon(//图标小部件
+                Icons.ac_unit,
+                color: Colors.white,
+                size: 32.0,
+              ),
+            ),
+          )
         ],
       ),
     );
