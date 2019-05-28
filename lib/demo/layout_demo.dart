@@ -3,10 +3,17 @@ import 'package:flutter/material.dart';
 class LayoutDemo extends StatelessWidget{
   @override
   Widget build(BuildContext context){
-    return Column(//竖排小部件
-      children: <Widget>[
-        IconBadge(Icons.pool,size:64.0)
-      ],
+    return Container(
+      child: Row(//横排小部件
+        children: <Widget>[
+          IconBadge(
+            Icons.poll
+          ),
+          IconBadge(
+            Icons.polymer
+          ),
+        ],
+      ),
     );
   }
 }
