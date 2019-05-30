@@ -1,9 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter/widgets.dart';
 import '../model/post.dart';
 
 class ViewDemo extends StatelessWidget {
-  Widget _pageItemBuilder(BuildContext context,int index){
+  @override
+  Widget build(BuildContext context) {
+    return GridViewCountDemo();
+  }
+}
+
+class GridViewCountDemo extends StatelessWidget{
+    List<Widget> _buildTiles(int length){
+    return List.generate(
+      length,
+      (int index){
+        return Container(//盒子小部件
+          color: Colors.grey[300],
+          alignment: Alignment(0.0, 0.0),
+          child: Text(//文本小部件
+            "Item",
+            style: TextStyle(
+              fontSize: 18.0,
+              color: Colors.grey
+            ),
+          ),
+        );
+      } 
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.count(//网格小部件
+      crossAxisCount: 3,//主轴网格数量
+      crossAxisSpacing: 16.0,//网格左右间距
+      mainAxisSpacing:  16.0,//网格上下间距
+      scrollDirection: Axis.horizontal,//网格方向
+      children: _buildTiles(100)
+    );
+  }
+}
+
+class PageViewBuilderDemo extends StatelessWidget{  Widget _pageItemBuilder(BuildContext context,int index){
     return Stack(//叠加小部件
       children: <Widget>[
         SizedBox.expand(//占满页面的小盒子小部件
@@ -99,3 +138,5 @@ class PageViewDemo extends StatelessWidget {
     );
   }
 }
+
+
