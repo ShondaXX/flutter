@@ -6,9 +6,42 @@ import '../model/post.dart';
 class ViewDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GridViewCountDemo();
+    return GridViewExtentDemo();
   }
 }
+
+class GridViewExtentDemo extends StatelessWidget{
+    List<Widget> _buildTiles(int length){
+    return List.generate(
+      length,
+      (int index){
+        return Container(//盒子小部件
+          color: Colors.grey[300],
+          alignment: Alignment(0.0, 0.0),
+          child: Text(//文本小部件
+            "Item",
+            style: TextStyle(
+              fontSize: 18.0,
+              color: Colors.grey
+            ),
+          ),
+        );
+      } 
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.extent(//网格小部件
+      maxCrossAxisExtent: 150.0,//在交叉轴的大小
+      crossAxisSpacing: 16.0,//网格左右间距
+      mainAxisSpacing:  16.0,//网格上下间距
+      // scrollDirection: Axis.horizontal,//网格方向
+      children: _buildTiles(100)
+    );
+  }
+}
+
 
 class GridViewCountDemo extends StatelessWidget{
     List<Widget> _buildTiles(int length){
