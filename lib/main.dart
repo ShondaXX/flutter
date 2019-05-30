@@ -5,6 +5,7 @@ import './demo/drawer_demo.dart';
 import './demo/bottom_navigation_bar_demo.dart';
 import './demo/basic_demo.dart';
 import './demo/layout_demo.dart';
+import './demo/view_demo.dart';
 
 void main() => runApp(App());
 
@@ -27,7 +28,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(//标签小部件
-      length: 3, //标签数量
+      length: 4, //标签数量
       child: Scaffold(
         //脚手架小部件
         backgroundColor: Colors.grey[100], //背景颜色
@@ -71,6 +72,11 @@ class Home extends StatelessWidget {
                 icon: Icon(//图标小部件
                   Icons.directions_bike
                 ),
+              ),
+              Tab(//标签控制器小部件
+                icon: Icon(//图标小部件
+                  Icons.view_quilt
+                ),
               )
             ],
           ),
@@ -89,12 +95,13 @@ class Home extends StatelessWidget {
             //   color: Colors.black12,
             // ),
             BasicDemo(),
-            LayoutDemo()
+            LayoutDemo(),
             // Icon(//图标小部件
             //   Icons.directions_bike,
             //   size: 128.0,
             //   color: Colors.black12,
             // )
+            ViewDemo()
           ],
         ),
         //ListViewDemo(),
