@@ -1,10 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import '../model/post.dart';
 
 class ViewDemo extends StatelessWidget {
+  Widget _pageItemBuilder(BuildContext context,int index){
+    return Stack(//叠加小部件
+      children: <Widget>[
+        SizedBox.expand(//占满页面的小盒子小部件
+          child: Image.network(//请求网络图片小部件
+          posts[index].imageUrl,
+          fit: BoxFit.cover ,
+          ),
+        ),
+        Positioned(
+          bottom: 8.0,
+          left: 8.0,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                posts[index].title,
+              )
+            ],
+          ),
+        )
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return PageViewDemo();
+    return PageView.builder(//列表滚动页面小部件
+       itemCount: posts.length,
+       itemBuilder: _pageItemBuilder,
+    );
   }
 }
 
