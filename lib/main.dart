@@ -6,6 +6,7 @@ import './demo/bottom_navigation_bar_demo.dart';
 import './demo/basic_demo.dart';
 import './demo/layout_demo.dart';
 import './demo/view_demo.dart';
+import './demo/sliver_demo.dart';
 
 void main() => runApp(App());
 
@@ -14,7 +15,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(//Material 风格的小部件
       debugShowCheckedModeBanner: false, //隐藏 debug 条幅
-      home: Home(),
+      home: SliverDemo(),
       theme: ThemeData(//主题颜色小部件
           primarySwatch: Colors.yellow, //主要颜色
           highlightColor: Color.fromRGBO(255, 255, 255, 0.5),//高亮颜色
