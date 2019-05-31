@@ -8,12 +8,32 @@ class SliverDemo extends StatelessWidget {
       body: CustomScrollView(
         //滚动视图小部件
         slivers: <Widget>[
+          SliverAppBar(//滚动视图标题小部件
+            // title: Text("HELLO"),
+            // // pinned: true,//固定滚动视图标题小部件
+            // floating: true,//向上拉显示标题
+            expandedHeight:178.0,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(
+                "data",
+                style: TextStyle(
+                  fontSize: 15.0,
+                  letterSpacing: 3.0,//字间距
+                  fontWeight: FontWeight.w400
+                ),
+              ),
+              background: Image.network(
+                posts[0].imageUrl,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
           SliverSafeArea(
             //安全区小部件
             sliver: SliverPadding(
               //滚动视图内边距小部件
               padding: EdgeInsets.all(8.0),
-              sliver: SliverListDemo(),
+              sliver: SliverGridDemo(),
             ),
           )
         ],
