@@ -30,12 +30,44 @@ class RegisterForm extends StatefulWidget {
 class _RegisterFormState extends State<RegisterForm> {
   final registerFormKey = GlobalKey<FormState>();
   String username,passwrod;
+  bool autovalidate = false;
 
   void submitRegisterForm (){
-    registerFormKey.currentState.save();//保存表单内容
+    if(registerFormKey.currentState.validate()){
+      //验证成功
+      registerFormKey.currentState.save();//保存表单内容
+      // registerFormKey.currentState.validate();//执行验证
+      debugPrint('$username : $passwrod');
 
-    debugPrint('$username : $passwrod');
+      Scaffold.of(context).showSnackBar(
+        SnackBar(//底部提示小部件
+          content: Text("data..."),
+        )
+      );
 
+    }else{
+      //失败
+      setState(() {
+       autovalidate = true; 
+      });
+    }
+
+  }
+
+
+  String validateUsername(value){
+    if(value.isEmpty){
+      return "Username is  required";
+    }
+    return null;
+  }
+
+
+  String validatePasswrod(value){
+    if(value.isEmpty){
+      return "Passwrod is  required";
+    }
+    return null;
   }
 
   @override
@@ -46,24 +78,30 @@ class _RegisterFormState extends State<RegisterForm> {
         children: <Widget>[
           TextFormField(//表单输入框小部件
             decoration: InputDecoration(//输入框装饰小部件
-              labelText: "Username"
+              labelText: "Username",
+              helperText: ""
             ),
             onSaved: (value){
               setState(() {
                username = value; 
               });
             },
+            validator: validateUsername,//验证
+            autovalidate: autovalidate,//自动验证
           ),
-          TextFormField(//表单小部件
+          TextFormField(//表单输入框小部件
             obscureText: true,//隐藏输入文字
             decoration: InputDecoration(//输入框装饰小部件
-              labelText: "Password"
+              labelText: "Password",
+              helperText: "",
             ),
             onSaved: (value){
               setState(() {
                passwrod = value; 
               });
             },
+            validator: validatePasswrod,
+            autovalidate: autovalidate,//自动验证
           ),
           SizedBox(//小盒子小部件
             height: 32.0,
