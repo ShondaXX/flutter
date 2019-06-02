@@ -13,10 +13,76 @@ class FormDemo extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              TextFieldDemo()
+              RegisterForm()
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class RegisterForm extends StatefulWidget {
+  @override
+  _RegisterFormState createState() => _RegisterFormState();
+}
+
+class _RegisterFormState extends State<RegisterForm> {
+  final registerFormKey = GlobalKey<FormState>();
+  String username,passwrod;
+
+  void submitRegisterForm (){
+    registerFormKey.currentState.save();//保存表单内容
+
+    debugPrint('$username : $passwrod');
+
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(//表单小部件
+      key: registerFormKey,
+      child: Column(//竖排小部件
+        children: <Widget>[
+          TextFormField(//表单输入框小部件
+            decoration: InputDecoration(//输入框装饰小部件
+              labelText: "Username"
+            ),
+            onSaved: (value){
+              setState(() {
+               username = value; 
+              });
+            },
+          ),
+          TextFormField(//表单小部件
+            obscureText: true,//隐藏输入文字
+            decoration: InputDecoration(//输入框装饰小部件
+              labelText: "Password"
+            ),
+            onSaved: (value){
+              setState(() {
+               passwrod = value; 
+              });
+            },
+          ),
+          SizedBox(//小盒子小部件
+            height: 32.0,
+          ),
+          Container(
+            width: double.infinity,
+            child: RaisedButton(//按钮小部件
+              color: Theme.of(context).accentColor,
+              child: Text(
+                "Register",
+                style: TextStyle(
+                  color: Colors.white
+                ),
+              ),
+              elevation: 0.0,
+              onPressed: submitRegisterForm,
+            ),
+          )
+        ],
       ),
     );
   }
