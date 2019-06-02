@@ -139,7 +139,8 @@ class ButtonDemo extends StatelessWidget {
     final Widget ExpandedButtom = Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Expanded(//
+        Expanded(
+          //
           child: OutlineButton(
             //描边按钮小部件
             //平面按钮小部件
@@ -156,8 +157,9 @@ class ButtonDemo extends StatelessWidget {
         SizedBox(
           width: 16.0,
         ),
-        Expanded(//
-          flex: 2,//
+        Expanded(
+          //
+          flex: 2, //
           child: OutlineButton(
             //描边按钮小部件
             //平面按钮小部件
@@ -170,6 +172,47 @@ class ButtonDemo extends StatelessWidget {
             highlightedBorderColor: Colors.grey,
             // textColor: Theme.of(context).accentColor,//文字颜色
           ),
+        )
+      ],
+    );
+
+    final Widget ButtomDemo = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Theme(
+          data: Theme.of(context).copyWith(
+            buttonTheme: ButtonThemeData(
+              padding: EdgeInsets.symmetric(horizontal: 36.0),
+            )
+          ),
+          child:ButtonBar(//列表按钮
+          children: <Widget>[
+            OutlineButton(
+              //描边按钮小部件
+              //平面按钮小部件
+              child: Text("button"),
+              onPressed: () {},
+              splashColor: Colors.grey,
+              borderSide: BorderSide(
+                  //描边样式
+                  color: Colors.black),
+              highlightedBorderColor: Colors.grey,
+              // textColor: Theme.of(context).accentColor,//文字颜色
+            ),
+            OutlineButton(
+              //描边按钮小部件
+              //平面按钮小部件
+              child: Text("button"),
+              onPressed: () {},
+              splashColor: Colors.grey,
+              borderSide: BorderSide(
+                  //描边样式
+                  color: Colors.black),
+              highlightedBorderColor: Colors.grey,
+              // textColor: Theme.of(context).accentColor,//文字颜色
+            ),
+          ],
+        ),
         )
       ],
     );
@@ -188,7 +231,8 @@ class ButtonDemo extends StatelessWidget {
             RaisedButtonDemo,
             OutlineButtonDemo,
             FixedwidthButtom,
-            ExpandedButtom
+            ExpandedButtom,
+            ButtomDemo
           ],
         ),
       ),
