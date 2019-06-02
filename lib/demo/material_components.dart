@@ -136,6 +136,44 @@ class ButtonDemo extends StatelessWidget {
       ],
     );
 
+    final Widget ExpandedButtom = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Expanded(//
+          child: OutlineButton(
+            //描边按钮小部件
+            //平面按钮小部件
+            child: Text("button"),
+            onPressed: () {},
+            splashColor: Colors.grey,
+            borderSide: BorderSide(
+                //描边样式
+                color: Colors.black),
+            highlightedBorderColor: Colors.grey,
+            // textColor: Theme.of(context).accentColor,//文字颜色
+          ),
+        ),
+        SizedBox(
+          width: 16.0,
+        ),
+        Expanded(//
+          flex: 2,//
+          child: OutlineButton(
+            //描边按钮小部件
+            //平面按钮小部件
+            child: Text("button"),
+            onPressed: () {},
+            splashColor: Colors.grey,
+            borderSide: BorderSide(
+                //描边样式
+                color: Colors.black),
+            highlightedBorderColor: Colors.grey,
+            // textColor: Theme.of(context).accentColor,//文字颜色
+          ),
+        )
+      ],
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: Text("ButtonDemo"),
@@ -149,7 +187,8 @@ class ButtonDemo extends StatelessWidget {
             FlatButtonDemo,
             RaisedButtonDemo,
             OutlineButtonDemo,
-            FixedwidthButtom
+            FixedwidthButtom,
+            ExpandedButtom
           ],
         ),
       ),
