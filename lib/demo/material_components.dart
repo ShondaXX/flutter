@@ -48,6 +48,32 @@ class ButtonDemo extends StatelessWidget {
       ],
     );
 
+    final Widget RaisedButtonDemo = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        RaisedButton(
+          //平面按钮小部件
+          child: Text("button"),
+          onPressed: () {},
+          splashColor: Colors.grey,
+          elevation: 0.0,
+          // textColor: Theme.of(context).accentColor,//文字颜色
+        ),
+        SizedBox(
+          width: 20.0,
+        ),
+        RaisedButton.icon(
+          //平面按钮小部件
+          label: Text("button"),
+          icon: Icon(Icons.add),
+          onPressed: () {},
+          splashColor: Colors.grey,
+          elevation: 0.0,
+          // textColor: Theme.of(context).accentColor,//文字颜色
+        ),
+      ],
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: Text("ButtonDemo"),
@@ -58,7 +84,8 @@ class ButtonDemo extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            FlatButtonDemo
+            FlatButtonDemo,
+            RaisedButtonDemo
           ],
         ),
       ),
