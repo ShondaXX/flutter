@@ -16,10 +16,10 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(//Material 风格的小部件
       debugShowCheckedModeBanner: false, //隐藏 debug 条幅
-      // home: NavigatorDemo(),
-      initialRoute: '/',//默认路由
+      home: Home(),
+      // initialRoute: '/',//默认路由
       routes: {//路由
-        '/':(context) => NavigatorDemo(),
+        // '/': (context) => NavigatorDemo(),
         '/about':(context) => Page(title: "HH",)
       },
       theme: ThemeData(//主题颜色小部件
