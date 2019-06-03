@@ -19,7 +19,7 @@ class _RadioDemoState extends State<RadioDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("_WidgetDemo"),
+        title: Text("Radio"),
         elevation: 0.0,
       ),
       body: Container(
