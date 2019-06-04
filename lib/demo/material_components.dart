@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterdemo/demo/datetime_demo.dart';
 import './buttom_demo.dart';
 import './floating_action_button_demo.dart';
 import './popup_menu_button_demo.dart';
@@ -17,6 +18,10 @@ class MaterialComponents extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
+          ListItem(
+            title: "DateTime",
+            page: DateTimeDemo(),
+          ),
           ListItem(
             title: "Slider",
             page: SliderDemo(),
