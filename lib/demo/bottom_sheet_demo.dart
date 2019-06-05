@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
 
 class BottomSheetDemo extends StatefulWidget {
   @override
@@ -35,6 +36,41 @@ class _BottomSheetDemoState extends State<BottomSheetDemo> {
     });
   }
 
+  Future _openModalBottomSheel() async {
+    final option = await showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context){
+        return Container(
+          height: 200.0,
+          child: Column(
+            children: <Widget>[
+              ListTile(
+                title: Text("Option A"),
+                onTap: (){
+                  Navigator.pop(context,"A");
+                },
+              ),
+              ListTile(
+                title: Text("Option B"),
+                onTap: (){
+                  Navigator.pop(context,"B");
+                },
+              ),
+              ListTile(
+                title: Text("Option C"),
+                onTap: (){
+                  Navigator.pop(context,"C");
+                },
+              )
+            ],
+          ),
+        );
+      }
+    );
+    print(option);
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,6 +90,10 @@ class _BottomSheetDemoState extends State<BottomSheetDemo> {
                 FlatButton(
                   child: Text("Open BottomSheet"),
                   onPressed: _openBottomSheel,
+                ),
+                FlatButton(
+                  child: Text("Open BottomModalSheet"),
+                  onPressed: _openModalBottomSheel,
                 )
               ],
             )
