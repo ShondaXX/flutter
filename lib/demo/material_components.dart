@@ -8,6 +8,7 @@ import './radio_demo.dart';
 import './switch_demo.dart';
 import './slider_demo.dart';
 import './simple_dialog_demo.dart';
+import './bottom_sheet_demo.dart';
 
 class MaterialComponents extends StatelessWidget {
   @override
@@ -20,39 +21,43 @@ class MaterialComponents extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           ListItem(
-            title: "SimpleDialogDemo",
+            title: "BottomSheetDemo  底部滑动",
+            page: BottomSheetDemo(),
+          ),
+          ListItem(
+            title: "SimpleDialogDemo   对话框",
             page: SimpleDialogDemo(),
           ),
           ListItem(
-            title: "DateTime",
+            title: "DateTime  时间",
             page: DateTimeDemo(),
           ),
           ListItem(
-            title: "Slider",
+            title: "Slider  滑块",
             page: SliderDemo(),
           ),
           ListItem(
-            title: "Switch",
+            title: "Switch   开关",
             page: SwitchDemo(),
           ),
           ListItem(
-            title: "Radio",
+            title: "Radio  单选按钮",
             page: RadioDemo(),
           ),
           ListItem(
-            title: "Checkbox",
+            title: "Checkbox  复选按钮",
             page: CheckboxDemo(),
           ),
           ListItem(
-            title: "PopupMenuButton",
+            title: "PopupMenuButton  菜单按钮",
             page: PopupMenuButtonDemo(),
           ),
           ListItem(
-            title: "FloatingActionBtton",
+            title: "FloatingActionBtton  浮动按钮",
             page: FloatingActionButtonDemo(),
           ),
           ListItem(
-            title: "Btton",
+            title: "Btton  按钮",
             page: ButtonDemo(),
           ),
         ],
