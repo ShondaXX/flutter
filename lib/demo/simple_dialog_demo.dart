@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
+
+enum Option {
+  A, B, C
+}
 
 class SimpleDialogDemo extends StatefulWidget {
   @override
@@ -6,8 +11,10 @@ class SimpleDialogDemo extends StatefulWidget {
 }
 
 class _SimpleDialogDemoState extends State<SimpleDialogDemo> {
-  _openSimpleDialog(){
-    showDialog(//显示对话框小部件
+  String _choice = "Nothing";
+
+  Future _openSimpleDialog() async {
+    final option = await showDialog(//显示对话框小部件
       context: context,
       builder: (BuildContext context){
         return SimpleDialog(//对话框小部件
@@ -16,25 +23,45 @@ class _SimpleDialogDemoState extends State<SimpleDialogDemo> {
               SimpleDialogOption(//对话框选项小部件
                 child: Text("Option A"),
                 onPressed: (){
-                  Navigator.pop(context);
+                  Navigator.pop(context,Option.A);
                 },
               ),
               SimpleDialogOption(//对话框选项小部件
                 child: Text("Option C"),
                 onPressed: (){
-                  Navigator.pop(context);
+                  Navigator.pop(context,Option.B);
                 },
               ),
               SimpleDialogOption(//对话框选项小部件
                 child: Text("Option C"),
                 onPressed: (){
-                  Navigator.pop(context);
+                  Navigator.pop(context,Option.C);
                 },
               ),
             ],
         );
       }
     );
+
+    switch (option) {
+      case Option.A:
+        setState(() {
+         _choice = "A"; 
+        });
+        break;
+      case Option.B:
+        setState(() {
+         _choice = "B"; 
+        });
+        break;
+      case Option.C:
+        setState(() {
+         _choice = "C"; 
+        });
+        break;
+      default:
+    }
+
   }
 
   @override
@@ -49,6 +76,7 @@ class _SimpleDialogDemoState extends State<SimpleDialogDemo> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Text(_choice),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
