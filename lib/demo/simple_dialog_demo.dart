@@ -13,10 +13,24 @@ class _SimpleDialogDemoState extends State<SimpleDialogDemo> {
         return SimpleDialog(//对话框小部件
             title: Text("showDialog"),
             children: <Widget>[
-              Container(
-                padding: EdgeInsets.all(34.0),
-                child: Text("王思婷"),
-              )
+              SimpleDialogOption(//对话框选项小部件
+                child: Text("Option A"),
+                onPressed: (){
+                  Navigator.pop(context);
+                },
+              ),
+              SimpleDialogOption(//对话框选项小部件
+                child: Text("Option C"),
+                onPressed: (){
+                  Navigator.pop(context);
+                },
+              ),
+              SimpleDialogOption(//对话框选项小部件
+                child: Text("Option C"),
+                onPressed: (){
+                  Navigator.pop(context);
+                },
+              ),
             ],
         );
       }

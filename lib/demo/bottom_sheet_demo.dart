@@ -12,7 +12,7 @@ class _BottomSheetDemoState extends State<BottomSheetDemo> {
     _bottomSheetScaffoldKey
     .currentState
     .showBottomSheet((BuildContext context){
-      return BottomAppBar(
+      return BottomAppBar(//底部导航
         child: Container(
           height: 90.0,
           width: double.infinity,
