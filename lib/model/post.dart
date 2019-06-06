@@ -14,7 +14,7 @@ class Post {
 final List<Post> posts = [
   Post(
       title: "lijinshanmx",
-      author: "2019-05-05",
+      author: "2019-5-5",
       imageUrl:
           "http://ww1.sinaimg.cn/large/0065oQSqly1g2pquqlp0nj30n00yiq8u.jpg"),
   Post(
