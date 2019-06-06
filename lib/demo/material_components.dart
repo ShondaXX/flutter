@@ -12,6 +12,7 @@ import './bottom_sheet_demo.dart';
 import './alert_dialog_demo.dart';
 import './snack_bar_demo.dart';
 import './expansion_panel_demo.dart';
+import './chip_demo.dart';
 
 class MaterialComponents extends StatelessWidget {
   @override
@@ -23,6 +24,10 @@ class MaterialComponents extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
+          ListItem(
+            title: "Chip  小碎片",
+            page: ChipDemo(),
+          ),
           ListItem(
             title: "ExpansionPanelDemo",
             page: ExpansionPanelDemo(),
@@ -104,6 +109,7 @@ class _WidgetDemo extends StatelessWidget {
       ),
     );
   }
+  
 }
 
 
