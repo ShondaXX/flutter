@@ -16,6 +16,8 @@ class _ChipDemoState extends State<ChipDemo> {
 
   List<String> _selected =[];
 
+  String _conice = "Lemon"; 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -147,6 +149,32 @@ class _ChipDemoState extends State<ChipDemo> {
                     }
                   ).toList(),
                 ),
+                Divider(//分隔符小部件
+                  color: Colors.grey,
+                  height: 32.0,
+                  indent: 100.0,
+                ),
+                Container(
+                  width: double.infinity,
+                  child: Text("ChoiceChip ${_conice}"),
+                ),
+                Wrap(
+                  spacing: 8.0,
+                  children: _tags.map(
+                    (tag){
+                      return ChoiceChip(//选择小碎片小部件
+                        label: Text(tag),
+                        selected: _conice == tag,
+                        selectedColor: Colors.black,
+                        onSelected: (value){
+                          setState(() {
+                            _conice = tag;
+                          });
+                        },
+                      );
+                    }
+                  ).toList(),
+                ),
               ],
             )
           ],
@@ -162,6 +190,7 @@ class _ChipDemoState extends State<ChipDemo> {
              "Lemons"
            ];
            _selected = [];
+           _conice = "Lemons";
           });
         },
       ),
