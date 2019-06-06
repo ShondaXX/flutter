@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../model/post.dart';
 class CardDemo extends StatefulWidget {
   @override
-  _ CardDemoState createState() => _CardDemoState();
+  _CardDemoState createState() => _CardDemoState();
 }
 
 class _CardDemoState extends State<CardDemo> {

@@ -16,6 +16,7 @@ import './chip_demo.dart';
 import './data_table_demo.dart';
 import './paginated_data_table_demo.dart';
 import './card_demo.dart';
+import './stepper_demo.dart';
 
 class MaterialComponents extends StatelessWidget {
   @override
@@ -27,6 +28,10 @@ class MaterialComponents extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
+          ListItem(
+            title: "StepperDemo",
+            page: StepperDemo(),
+          ),
           ListItem(
             title: "CardDemo",
             page: CardDemo(),
