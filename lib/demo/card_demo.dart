@@ -23,10 +23,16 @@ class _CardDemoState extends State<CardDemo> {
                   children: <Widget>[
                     AspectRatio(
                       aspectRatio: 16/9,
-                      child: Image.network(
+                      child: ClipRRect(//卡片圆角小部件
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(4.0),
+                          topRight: Radius.circular(4.0)
+                        ),
+                        child: Image.network(
                         post.imageUrl,
                         fit: BoxFit.cover,
                       ),
+                      )
                     ),
                     ListTile(
                       leading: CircleAvatar(
