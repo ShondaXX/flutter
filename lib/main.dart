@@ -12,6 +12,7 @@ import './demo/navigator_demo.dart';
 import './demo/form_demo.dart';
 import './demo/material_components.dart';
 import './demo/datetime_demo.dart';
+import './demo/state/state_management.dart';
 
 void main() => runApp(App());
 
@@ -21,12 +22,13 @@ class App extends StatelessWidget {
     return MaterialApp(//Material 风格的小部件
       debugShowCheckedModeBanner: false, //隐藏 debug 条幅
       // home: Home(),
-      initialRoute: '/mdc',//默认路由
+      initialRoute: '/state-management',//默认路由
       routes: {//路由
         '/': (context) => Home(),
         '/about':(context) => Page(title: "HH",),
         '/form':(context) => FormDemo(),
-        '/mdc':(context) => MaterialComponents()
+        '/mdc':(context) => MaterialComponents(),
+        '/state-management': (context) => StateManagementDemo()
       },
       theme: ThemeData(//主题颜色小部件
           primarySwatch: Colors.yellow, //主要颜色
